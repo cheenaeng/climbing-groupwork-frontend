@@ -14,9 +14,10 @@ function CreateTrip() {
     const tripData = {
       tripName: tempTripName,
     };
-    axios.post(`${BACKEND_URL}/createTrip`, tripData).then((response) => {
-      console.log(response.data);
-    });
+    axios.post(`${BACKEND_URL}/createTrip`, tripData)
+      .then((response) => {
+        console.log(response.data);
+      });
     setTripName('');
   };
   return (
