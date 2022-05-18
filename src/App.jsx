@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import {
   BrowserRouter as Router, Routes, Route, Link,
@@ -6,8 +5,6 @@ import {
 import './App.css';
 import AllTripsDisplay from './Pages/AllTripsDisplay.jsx';
 import CreateTrip from './Pages/CreateTrip.jsx';
-
-axios.defaults.withCredentials = true;
 
 function App() {
   return (
