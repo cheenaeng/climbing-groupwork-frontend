@@ -5,7 +5,9 @@ import {
 import './App.css';
 import AllTripsDisplay from './Pages/AllTripsDisplay.jsx';
 import CreateTrip from './Pages/CreateTrip.jsx';
-import { TripProvider } from './tripsActions.js';
+import { TripProvider } from './tripsActions.jsx';
+
+import Trip from './Pages/Trip.jsx';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AllTripsDisplay />}> </Route>
           <Route path="/createTrip" element={<CreateTrip />}> </Route>
+          <Route path="/trips/:tripId" element={<Trip />}> </Route>
         </Routes>
       </Router>
     </TripProvider>
