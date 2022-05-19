@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const BACKEND_URL = 'http://localhost:3004';
 axios.defaults.withCredentials = true;
@@ -33,14 +35,20 @@ function CreateRoute(tripId, setRouteList) {
   const difficultiesOptions = difficulties.map((x) => (<option value={x} key={x}>{x}</option>));
 
   return (
+
     <>
-      <input type="text" placeholder="Key in new route name" id="tripName" name="tripName" onChange={handleRouteNameChange} value={tempRouteName} />
+      <TextField id="outlined-basic" label="Choose Route Name" variant="outlined" type="text" name="tripName" onChange={handleRouteNameChange} value={tempRouteName} />
       <br />
-      Difficulty:
-      <select onChange={(e) => setDifficulty(e.target.value)} value={tempDifficulty}>
-        {difficultiesOptions}
-      </select>
-      <button type="submit" onClick={recordRoute}> Enter</button>
+      <div>
+        Difficulty:
+        <select onChange={(e) => setDifficulty(e.target.value)} value={tempDifficulty}>
+          {difficultiesOptions}
+        </select>
+      </div>
+      <div>
+        <Button variant="contained" type="submit" className="button-submit" size="small" onClick={recordRoute}>Enter</Button>
+      </div>
+
     </>
   );
 }

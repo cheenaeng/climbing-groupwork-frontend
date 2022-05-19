@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ListItem from '@mui/material/ListItem';
+import List from '@mui/material/List';
 import { loadTripsAction, TripContext } from '../tripsActions.jsx';
 
 const BACKEND_URL = 'http://localhost:3004';
@@ -21,19 +23,21 @@ function AllTripsDisplay() {
   }, []);
 
   return (
-    <>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tripDisplay.map((trip, index) => (
-        <div>
+        <ListItem className="tripName-list-item">
           <span>
             {index + 1}
             {' '}
           </span>
           <span>
-            <Link to={`/trips/${index}`}>{trip.name}</Link>
+            <Link to={`/trips/${index}`} className="tripName">
+              {trip.name}
+            </Link>
           </span>
-        </div>
+        </ListItem>
       ))}
-    </>
+    </List>
   );
 }
 
