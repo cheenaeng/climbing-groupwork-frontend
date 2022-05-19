@@ -8,3 +8,4 @@ cheena - set up routes in app.jsx
 tabs - included individual trip routes using useParams() with links on homepage
 
 3. '/trips/:tripId' - page for each individual trip
+4. create route feature done
