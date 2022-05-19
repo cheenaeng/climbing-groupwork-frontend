@@ -9,3 +9,4 @@ tabs - included individual trip routes using useParams() with links on homepage
 
 3. '/trips/:tripId' - page for each individual trip
 4. create route feature done
+5. view list of routes per trip done
