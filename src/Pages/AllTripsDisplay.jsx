@@ -1,13 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
-import { loadTripsAction, TripContext } from '../tripsActions.js';
+import { loadTripsAction, TripContext } from '../tripsActions.jsx';
 
 const BACKEND_URL = 'http://localhost:3004';
 axios.defaults.withCredentials = true;
 
 function AllTripsDisplay() {
   const [tripDisplay, setTrips] = useState([]);
-  const { states, dispatch } = useContext(TripContext);
+  const { dispatch } = useContext(TripContext);
 
   useEffect(() => {
     axios.get(`${BACKEND_URL}/trips`).then((result) => {
