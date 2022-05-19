@@ -17,7 +17,7 @@ function Trip() {
 
   useEffect(() => {
     const fetchRouteList = async () => {
-      const tripRouteData = await axios.post(`${BACKEND_URL}/findRoutes`, { tripId: tripId + 1 });
+      const tripRouteData = await axios.post(`${BACKEND_URL}/findRoutes`, { tripId: Number(tripId) + 1 });
       setRouteList(tripRouteData.data.tripRoutes.routes);
     };
     fetchRouteList();
