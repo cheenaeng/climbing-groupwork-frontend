@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { loadTripsAction, TripContext } from '../tripsActions.jsx';
 
 const BACKEND_URL = 'http://localhost:3004';
@@ -7,7 +8,8 @@ axios.defaults.withCredentials = true;
 
 function AllTripsDisplay() {
   const [tripDisplay, setTrips] = useState([]);
-  const { dispatch } = useContext(TripContext);
+  const { states, dispatch } = useContext(TripContext);
+  console.log(states);
 
   useEffect(() => {
     axios.get(`${BACKEND_URL}/trips`).then((result) => {
@@ -27,7 +29,7 @@ function AllTripsDisplay() {
             {' '}
           </span>
           <span>
-            {trip.name}
+            <Link to={`/trips/${index}`}>{trip.name}</Link>
           </span>
         </div>
       ))}
