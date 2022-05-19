@@ -4,7 +4,7 @@ import axios from 'axios';
 const BACKEND_URL = 'http://localhost:3004';
 axios.defaults.withCredentials = true;
 
-function CreateRoute(tripId) {
+function CreateRoute(tripId, setRouteList) {
   const [tempRouteName, setRouteName] = useState('');
   const [tempDifficulty, setDifficulty] = useState(1);
   const handleRouteNameChange = (e) => {
@@ -22,8 +22,10 @@ function CreateRoute(tripId) {
     axios.post(`${BACKEND_URL}/createRoute`, routeData)
       .then((response) => {
         console.log(response.data);
+        setRouteList((prev) => [...prev, response.data.newRoute]);
       });
     setRouteName('');
+    setDifficulty(1);
   };
 
   // eslint-disable-next-line max-len
