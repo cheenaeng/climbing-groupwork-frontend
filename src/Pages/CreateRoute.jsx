@@ -13,7 +13,7 @@ function CreateRoute(tripId, setRouteList) {
     setRouteName(e.target.value);
   };
 
-  const tripDatabaseId = tripId + 1;
+  const tripDatabaseId = Number(tripId) + 1;
 
   const recordRoute = () => {
     const routeData = {
